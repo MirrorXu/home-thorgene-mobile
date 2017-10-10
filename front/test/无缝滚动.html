@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝滚动轮播效果</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .container{
+            border: 1px solid red;
+        }
+        .items{
+            white-space: nowrap;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+        .item {
+            display: inline-block;
+            padding: 0;
+            float: none;
+        }
+        .img-responsive{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="wrap container">
+        <ul class="items list-unstyled row"><!--
+    --><li class="item col-xs-4"><img class="img-responsive" src="https://static.tigerbrokers.com/portal/images/cooperation/stockGame/v2-partner0.8a07a886.jpg" alt=""></li><!--
+    --><li class="item col-xs-4"><img class="img-responsive" src="https://static.tigerbrokers.com/portal/images/cooperation/stockGame/v2-partner1.56bcecb3.png" alt=""></li><!--
+    --><li class="item col-xs-4"><img class="img-responsive" src="https://static.tigerbrokers.com/portal/images/cooperation/stockGame/v2-partner2.9a7e8842.jpg" alt=""></li><!--
+    --><li class="item col-xs-4"><img class="img-responsive" src="https://static.tigerbrokers.com/portal/images/cooperation/stockGame/v2-partner3.47acdfbd.png" alt=""></li><!--
+    --><li class="item col-xs-4"><img class="img-responsive" src="https://static.tigerbrokers.com/portal/images/cooperation/stockGame/v2-partner5.e9205d49.jpg" alt=""></li><!--
+    --><li class="item col-xs-4"><img class="img-responsive" src="https://static.tigerbrokers.com/portal/images/cooperation/stockGame/v2-partner6.83b14a71.png" alt=""></li><!--
+    --></ul>
+    </div >
+</div>
+
+<script>
+  $(function () {
+
+      scroll('.items',70 );
+      function scroll( ele ,frame ,step ) {
+          var step = step || 1;
+          var $item = $(ele).children();
+          var w = 0 ;
+          $item.each(function () {
+              w += $(this).width();
+          });
+
+          $(ele).html( $(ele).html() + $(ele).html() );
+
+          var $items = $(ele);
+
+          var temp = 0;
+          function move() {
+              if( temp > w ){
+                  temp = 0
+              }else{
+                  temp = temp+step ;
+              }
+              $items.scrollLeft( temp );
+          }
+
+          setInterval(move , 1000/frame);
+      }
+
+  })
+
+
+</script>
+
+</body>
+</html>
