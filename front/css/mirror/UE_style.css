@@ -35,6 +35,12 @@
   font-weight: inherit;
   color: inherit;
 }
+.UE_style-1 ul li {
+  color: #676767;
+}
+.UE_style-1 ul li > * {
+  color: #676767 !important;
+}
 .UE_style-1 img {
   max-width: 96%;
   height: auto;

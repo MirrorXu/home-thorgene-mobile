@@ -200,7 +200,7 @@
         dataType:'json',
         success:function (data) {
             if(data){
-                proDetails = data;
+                proDetails_app.proDetails = data;
                 console.log( 'ajax成功' );
             }else{
                 alert('服务器繁忙，请稍后再试！');
