@@ -13,24 +13,15 @@
     <!-- favicon-icon -->
     <link rel="icon" type="image/icon" href="images/favicon/favicon.ico">
 
-    <!-- Bootstrap -->
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-    <!-- Menu marker CSS -->
-    <link href="css/fontello.css" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Font simple-line-icons CSS -->
-    <link href="css/simple-line-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/wfmi-style.css">
 
     <!-- Font Custom  CSS -->
     <link href="css/menumaker.css" rel="stylesheet">
-
-    <!-- OWL CSS -->
-    <link href="css/owl.carousel.css" rel="stylesheet">
 
     <!-- Template Style CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -49,26 +40,6 @@
 </head>
 
 <body>
-<!--  Topbar -->
-<div class="topbar hidden-xs hidden-sm">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 col-sm-5">
-                <p class="wel-msg" style="font-weight: bold">欢迎访问索真官网！</p>
-            </div>
-            <div class="col-md-7 col-sm-7 hidden-xs">
-                <div class="topbar-contact">
-            <span class="topbar-email topbar-info">
-                <a href="mailto:support@thorgene.com"><i class="fa fa-envelope"></i>support@thorgene.com</a>
-            </span>
-                    <span class="topbar-email topbar-info"><a href="tel:010-56155456"><i class="fa fa-phone"> &nbsp; </i>010-56155456</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Topbar -->
-
 <!-- Header -->
 <div class="header">
     <div class="container">
@@ -79,21 +50,14 @@
                     <div id="navmenu">
                         <ul>
                             <li><a href="index.html">首页</a></li>
-                            <li>
-                                <a href="javascript:void(0);">临床服务</a>
-                                <ul>
-                                    <li><a href="product.html?id=pid_004">肿瘤基因检测</a></li>
-                                    <li><a href="product.html?id=pid_005">遗传病基因检测</a></li>
-                                    <li><a href="product.html?id=pid_006">药物代谢基因检测</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="product.html?id=pid_004">肿瘤基因检测</a></li>
+                            <li><a href="product.html?id=pid_005">遗传病基因检测</a></li>
+                            <li><a href="product.html?id=pid_006">药物代谢基因检测</a></li>
                             <li><a href="product.html?id=pid_002">科研服务</a></li>
-                            <li><a href="product.html?id=pid_003">大众健康</a>
-                            </li>
-                            <li><a href="about-us.html">关于索真</a></li>
+                            <li><a href="product.html?id=pid_003">大众健康</a></li>
                             <li><a href="news.html">新闻动态</a></li>
+                            <li><a href="about-us.html">关于索真</a></li>
                             <!--<li><a href="contact-us.html">联系我们</a></li>-->
-                            <!--<i class="fa fa-volume-control-phone mr5">-->
                         </ul>
                     </div>
                 </div>
@@ -103,15 +67,12 @@
 </div>
 <!-- /Header -->
 
-
 <div id="app" v-if="proLists">
     <!-- Page Header -->
     <div class="page-header">
         <div class="container">
             <div class="row page-section">
                 <div class="col-md-8">
-                    <h4>检测服务  <i class="fa fa-angle-right"></i></h4>
-                    <!--<br>-->
                     <h1>{{ proLists.text }} </h1>
                 </div>
                 <div class="col-md-4">
@@ -122,38 +83,32 @@
     </div>
     <!-- /Page Header -->
 
-    <!-- products section -->
-    <div class="productsList mtb30" >
-        <div class="container" v-if="!proLists.children">
-            <span class='center-block' style='width: 100%;text-align: center;color:deepskyblue;padding-top: 100px;padding-bottom: 100px'>
-                <i class='fa fa-spinner fa-pulse' style='font-size: 300px'>
-                </i>
-            </span>
-        </div>
-        <div class="container" v-if="proLists.children" >
-            <div class="pro-item"  v-for="v in proLists.children ">
-                <!--标题-->
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 pro-item-heading">
-                        <h1 class="heading-title">{{ v.text }}</h1>
-                        <!--<h4 class="sub-title mb5">专业英文描述</h4>-->
-                        <hr class="mtb5">
-                    </div>
+
+    <!--具体产品信息-->
+    <div class="container productsList" v-if="proLists.children">
+        <div class="panel-group mtb30" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default" v-for="v in proLists.children">
+                <div class="panel-heading" role="tab"   >
+                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" :data-target="'#'+v.text ">
+                        {{ v.text }}
+                    </h4>
                 </div>
-                <!--产品列表-->
-                <div class="row">
-                    <div class=" col-md-4 col-sm-6 col-xs-6" v-for="v in v.children">
-                        <div class="service-style-box mt5 mb5">
-                            <a :href="bUrl + v.id"  v-if="v.product_image"><img :src="v.product_image" class="img-responsive mb5" alt=""></a>
-                            <a :href="bUrl + v.id"  v-else="1"><img src="images/service/service1.jpg" class="img-responsive mb5" alt=""></a>
-                            <h2><a :href="bUrl + v.id" >{{ v.text }}</a></h2>
-                        </div>
+                <div class="panel-collapse collapse"  :id="v.text" >
+                    <div class="panel-body" >
+                        <ul class="" >
+                            <li  v-for="v in v.children"><a :href="bUrl + v.id" > {{ v.text }} </a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- products section -->
+    <div class="container" v-else>
+         <span class='center-block' style='width: 100%;text-align: center;color: #006699;padding-top: 100px;padding-bottom: 100px'>
+             <i class='fa fa-spinner fa-pulse' style='font-size: 100px'></i>
+         </span>
+    </div>
+
 
 </div>
 
@@ -161,58 +116,38 @@
 <!-- Footer-section -->
 <div class="footer-section">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs">
-                <div class="footer-contact-box">
-                    <h2>联系我们</h2>
-                    <div class="contact-icon">
-                        <i class="icon-location-pin icons"></i>
-                        <p>北京-亦庄生物医药园-A1-2层</p>
-                    </div>
-                    <div class="contact-icon">
-                        <i class="icon-envelope icons"></i>
-                        <p>support@thorgene.com</p>
-                    </div>
-                    <div class="contact-icon">
-                        <i class="icon-call-out icons"></i>
-                        <p>010-56315456</p>
-                    </div>
-                    <div class="footer-social-box">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-qq"></i></a></li>
-                            <li><a href="#"><i class="fa fa-weixin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-weibo"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-offset-1 col-md-5">
-                <div class="footer-widget">
-                    <h2>快速导航</h2>
-                    <ul class="listnone bullet-arrow-right footer-ul footer-menu">
-                        <li><a href="index.html">首页</a>
-                        <li><a href="product.html?id=pid_004">肿瘤基因检测</a></li>
-                        <li><a href="product.html?id=pid_005">遗传病基因检测</a></li>
-                        <li><a href="product.html?id=pid_006">药物代谢基因检测</a></li>
-                        <li><a href="product.html?id=pid_002">科研服务</a></li>
-                        <li><a href="product.html?id=pid_003">大众健康</a>
-                        <li><a href="about-us.html">关于索真</a></li>
-                        <li><a href="news.html">新闻动态</a></li>
-                        <li><a href="contact-us.html">联系我们</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="footer-widget">
-                    <h2>友情链接</h2>
-                    <ul class="listnone bullet-arrow-right" style="font-size: 15px">
-                        <li>南京索真信息技术有限公司</li>
-                        <li>苏州索真医学科技有限公司</li>
-                        <li>北京索真医学检验实验室有限公司</li>
-                        <li>天方创新（北京）信息技术有限公司</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="footer-section-item">
+            <h2>快速导航：</h2>
+            <ul class="row">
+                <li class="col-xs-6"><a href="index.html"><i class="fa fa-angle-right"></i>  首页</a>
+                <li class="col-xs-6"><a href="product.html?id=pid_004"><i class="fa fa-angle-right"></i>  肿瘤基因检测</a></li>
+                <li class="col-xs-6"><a href="product.html?id=pid_005"><i class="fa fa-angle-right"></i>  遗传病基因检测</a></li>
+                <li class="col-xs-6"><a href="product.html?id=pid_006"><i class="fa fa-angle-right"></i>  药物代谢基因检测</a></li>
+                <li class="col-xs-6"><a href="product.html?id=pid_002"><i class="fa fa-angle-right"></i>  科研服务</a></li>
+                <li class="col-xs-6"><a href="product.html?id=pid_003"><i class="fa fa-angle-right"></i>  大众健康</a>
+                <li class="col-xs-6"><a href="news.html"><i class="fa fa-angle-right"></i>  新闻动态</a></li>
+                <li class="col-xs-6"><a href="about-us.html"><i class="fa fa-angle-right"></i>  关于索真</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section-item">
+            <h2>联系我们：</h2>
+            <ul class="row">
+                <li class="col-xs-12"><p>索真(北京)医学科技有限公司</p></li>
+                <li class="col-xs-12"><p>地址：北京-亦庄生物医药园-A1-2层</p></li>
+                <li class="col-xs-12"><p>邮箱：support@thorgene.com</p></li>
+                <li class="col-xs-12"><p>电话：010-56315456</p></li>
+            </ul>
+        </div>
+
+        <div class="footer-section-item">
+            <h2>友情链接:</h2>
+            <ul class="row" >
+                <li class="col-xs-12">南京索真信息技术有限公司</li>
+                <li class="col-xs-12">苏州索真医学科技有限公司</li>
+                <li class="col-xs-12">北京索真医学检验实验室有限公司</li>
+                <li class="col-xs-12">天方创新（北京）信息技术有限公司</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -222,24 +157,19 @@
 <div class="tiny-footer-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-offset-6 col-md-6">
-                <div class="tiny-footer-copyright" > &copy; 2017 &nbsp;京ICP备17038502号 &nbsp;  索真（北京）医学科技有限公司</div>
-            </div>
+            <p class="tiny-footer-section-text">&copy; 2017 &nbsp;京ICP备17038502号 &nbsp;  索真（北京）医学科技有限公司</p>
         </div>
     </div>
 </div>
 <!-- /Tiny Footer-section -->
+
 
 <!-- jquery -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="lib/vue/dist/vue.js"></script>
 <script src="js/Mirror_proList.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/waypoints.min.js"></script> <!-- facts count js Required for jquery.counterup.js file -->
-<script type="text/javascript" src="js/jquery.counterup.js"></script>
 <script type="text/javascript" src="js/menumaker.js"></script>
-<script type="text/javascript" src="js/theme.js"></script>
 <!-- end  jquery -->
 </body>
 </html>

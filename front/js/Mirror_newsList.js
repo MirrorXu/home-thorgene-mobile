@@ -11,23 +11,12 @@
  * Created by MirrorXu on 2017/8/23.
  */
 
+var newList = [];
+
 var newsList_app = new Vue({
     el:'#news-content',
     data:{
-        newsList:[
-            {
-                news_id: "news_20170828145254",
-                news_title: "新闻标题",
-                news_content: "<h2>新闻内容</h2>",
-                news_time: "2017-08-28",
-                news_editor: "Mirror",
-                news_isshow: "",
-                status: "",
-                news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
-                news_information:"新闻摘要"
-            }
-
-        ],
+        newsList:newList,
         bUrl:'news-details.html?id='
     },
 });
@@ -39,11 +28,9 @@ var newsList_app = new Vue({
 
 $(function () {
     $.ajax({
-        url:'/thorgeneweb/web_news/thorgeneweb_news!list.action',
-        data:{
-            id:''
-        },
+        url:'/thorgeneweb/web_news/thorgeneweb_news!findAllShow.action',
         dataType:'json',
+        async:false,
         success:function (data) {
             if(data&&$.type(data)==='array'){
             	newsList_app.newsList = data;
@@ -53,6 +40,52 @@ $(function () {
         },
         error:function (data) {
             console.log('err：请求错误',data );
+            newsList_app.newsList = [
+                {
+                    news_id: "news_20170828145254",
+                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
+                    news_content: "<h2>新闻内容</h2>",
+                    news_time: "2017-08-28",
+                    news_editor: "Mirror",
+                    news_isshow: "",
+                    status: "",
+                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
+                    news_information:"新闻摘要"
+                },
+                {
+                    news_id: "news_20170828145254",
+                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
+                    news_content: "<h2>新闻内容</h2>",
+                    news_time: "2017-08-28",
+                    news_editor: "Mirror",
+                    news_isshow: "",
+                    status: "",
+                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
+                    news_information:"新闻摘要"
+                },
+                {
+                    news_id: "news_20170828145254",
+                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
+                    news_content: "<h2>新闻内容</h2>",
+                    news_time: "2017-08-28",
+                    news_editor: "Mirror",
+                    news_isshow: "",
+                    status: "",
+                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
+                    news_information:"新闻摘要"
+                },
+                {
+                    news_id: "news_20170828145254",
+                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
+                    news_content: "<h2>新闻内容</h2>",
+                    news_time: "2017-08-28",
+                    news_editor: "Mirror",
+                    news_isshow: "",
+                    status: "",
+                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
+                    news_information:"新闻摘要"
+                }
+            ]
         }
     })
 });

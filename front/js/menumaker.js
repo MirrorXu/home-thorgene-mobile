@@ -18,10 +18,10 @@
             $(this).toggleClass('menu-opened');
             var mainmenu = $(this).next('ul');
             if (mainmenu.hasClass('open')) { 
-              mainmenu.hide().removeClass('open');
+              mainmenu.hide('slow').removeClass('open');
             }
             else {
-              mainmenu.show().addClass('open');
+              mainmenu.show('slow').addClass('open');
               if (settings.format === "dropdown") {
                 mainmenu.find('ul').show();
               }
@@ -92,4 +92,11 @@
 
       });
   };
+
+
+    // Nav Menu for Menumarker
+    $("#navmenu").menumaker({
+        title: "ThorGene",
+        format: "multitoggle"
+    });
 })(jQuery);

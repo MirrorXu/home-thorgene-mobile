@@ -55,7 +55,7 @@
     }
     .section-title{
       font-weight: bold;
-      font-size: 20px;
+      font-size:18px;
       //color: #207fdc;
       //color: #337ab7;
       //color: #4495e4;
@@ -67,17 +67,28 @@
     hr{
       margin-bottom: 15px;
     }
+    //.pro-item{
+    //  margin: 5px;
+    //  padding: 10px 0;
+    //  display: block;
+    //  background-color: rgb(230,240,255);
+    //  border-radius: 10px;
+    //  .pro-item-title{
+    //    height: 60px;
+    //    line-height: 60px;
+    //    font-size: 20px;
+    //    color: #666666;
+    //    text-align: center;
+    //    padding-right: 15px;
+    //  }
+    //}
     .pro-item{
-      margin: 5px;
-      padding: 10px 0;
+      padding: 10px;
       display: block;
-      background-color: rgb(230,240,255);
-      border-radius: 5px;
-      .pro-item-title{
-        color: #666666;
-        font-size: 13px;
-        text-align: center;
-        margin-top: 0.5em;
+      .img-responsive{
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 1px 1px 2px 1px rgba(30,30,30,.1);
       }
     }
   }
@@ -173,5 +184,76 @@
       width: 100%;
     }
   }
+
+  //关于我们页面
+  .aboutPage{
+    .about-sec{
+      .text-box{
+        p{
+          text-indent: 2em;
+          line-height: 1.6;
+          font-size: 14px;
+          margin-bottom: 10px;
+          color: #666666;
+        }
+      }
+      .fa{
+        color: #006699;
+      }
+    }
+    .team-sec{
+      margin-top: 20px;
+      .team-box{
+        cursor: pointer;
+        margin-top: 20px;
+        .team-box-item{
+          img{
+            border: 1px solid #eeeeee;
+          }
+          h4{
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+          }
+        }
+      }
+      #DrModal{
+        //z-index: 2;
+      }
+    }
+    .advan-sec{
+      padding-top: 10px;
+      margin-bottom: 0;
+      background-color: rgba(250,250,250,1);
+      .advan-box{
+        margin-top: 10px;
+        .advan-box-item{
+          padding: 5px;
+          background-color: #FFFFFF;
+          margin-bottom: 15px;
+          h4{
+            //text-align: center;
+            margin-top: 5px;
+            margin-bottom: 3px;
+            font-size: 18px;
+            color: #666666;
+            line-height:1.6;
+          }
+          p{
+            //text-align: center;
+            font-size: 14px;
+            color: #888888;
+            line-height: 1.6;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+  }
+
+
 }
 
