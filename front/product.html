@@ -89,8 +89,8 @@
         <div class="panel-group mtb30" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default" v-for="v in proLists.children">
                 <div class="panel-heading" role="tab"   >
-                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" :data-target="'#'+v.id ">
-                        {{ v.text }}
+                    <h4 class="panel-title Mcollapse" role="button" data-toggle="collapse" data-parent="#accordion" :data-target="'#'+v.id ">
+                        {{ v.text }}  <span class="pull-right"> <i class="fa fa-angle-right"></i></span>
                     </h4>
                 </div>
                 <div class="panel-collapse collapse"  :id="v.id" >
@@ -170,6 +170,30 @@
 <script src="js/Mirror_proList.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/menumaker.js"></script>
+<script>
+
+
+    window.onload = function () {
+
+        $('.Mcollapse').on('click' , function () {
+            $.each($(this).parent().parent().siblings().find('.fa'),function (i , v) {
+                var $this = $( v );
+                if( $this.hasClass('fa-angle-down')){
+
+                    $this.removeClass('fa-angle-down').addClass('fa-angle-right')
+                }
+            })
+
+
+            var $el = $(this).find('.fa') ;
+            if($el.hasClass('fa-angle-right') ){
+                $el.removeClass('fa-angle-right').addClass('fa-angle-down');
+            }else{
+                $el.removeClass('fa-angle-down').addClass('fa-angle-right');
+            }
+        })
+    }
+</script>
 <!-- end  jquery -->
 </body>
 </html>

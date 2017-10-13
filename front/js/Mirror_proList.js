@@ -69,6 +69,20 @@ $(function () {
                                product_pid:1
                            }
                        ]
+                   },
+                   {
+                       text:'2.数据错误，请联系管理员',
+                       id:'pid_03',
+                       children:[
+                           {
+                               text:'2.1',
+                               product_pid:1
+                           },
+                           {
+                               text:'2.2',
+                               product_pid:1
+                           }
+                       ]
                    }
                ],
                id: "pid_003",
