@@ -43,24 +43,30 @@ $(function () {
                checked: false,
                children: [
                    {
-                       text:'Fruits',
+                       text:'1.数据错误，请联系管理员',
+                       id:'pid_01',
                        children:[
                            {
-                               text:'apple'
+                               text:'1.1',
+                               product_pid:1
                            },
                            {
-                               text:'orange'
+                               text:'1.2',
+                               product_pid:1
                            }
                        ]
                    },
                    {
-                       text:'vegetables',
+                       text:'2.数据错误，请联系管理员',
+                       id:'pid_02',
                        children:[
                            {
-                               text:'potato'
+                               text:'2.1',
+                               product_pid:1
                            },
                            {
-                               text:'onion'
+                               text:'2.2',
+                               product_pid:1
                            }
                        ]
                    }
@@ -68,7 +74,7 @@ $(function () {
                id: "pid_003",
                product_isparent: "T",
                product_pid: "-1",
-               text: "<测试>产品类名"
+               text: "loading..."
            };
        }
    })

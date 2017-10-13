@@ -89,11 +89,11 @@
         <div class="panel-group mtb30" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default" v-for="v in proLists.children">
                 <div class="panel-heading" role="tab"   >
-                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" :data-target="'#'+v.text ">
+                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" :data-target="'#'+v.id ">
                         {{ v.text }}
                     </h4>
                 </div>
-                <div class="panel-collapse collapse"  :id="v.text" >
+                <div class="panel-collapse collapse"  :id="v.id" >
                     <div class="panel-body" >
                         <ul class="" >
                             <li  v-for="v in v.children"><a :href="bUrl + v.id" > {{ v.text }} </a></li>
