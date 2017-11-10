@@ -22,12 +22,12 @@ function getId () {
     if( hrefStr.indexOf('?') > (-1) ){
         var str = hrefStr.split('?')[1];
             if( str.indexOf('&') > (-1)  ){
-                return str.split('&')[1].split('&')[1];
+                return str.split('&')[0].split('=')[1];
             }else{
                 return str.split('=')[1];
             }
     }else {
-        aleret.log( 'URL参数错误' )
+        alert( 'URL参数错误' )
     }
 }
 

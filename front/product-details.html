@@ -108,6 +108,7 @@
 
 
 
+
 <!-- Footer-section -->
 <div class="footer-section">
     <div class="container">
@@ -140,8 +141,8 @@
             <ul class="row" >
                 <li class="col-xs-12">南京索真信息技术有限公司</li>
                 <li class="col-xs-12">苏州索真医学科技有限公司</li>
-                <li class="col-xs-12">北京索真医学检验实验室有限公司</li>
-                <li class="col-xs-12">天方创新（北京）信息技术有限公司</li>
+                <li class="col-xs-12"><a href="./index.html"></a>北京索真医学检验实验室有限公司</li>
+                <li class="col-xs-12"><a href="http://www.vlifebank.com/">天方创新（北京）信息技术有限公司</a></li>
             </ul>
         </div>
     </div>
@@ -186,20 +187,22 @@
         }
     });
 
+
     function getId () {
 	    var hrefStr = window.location.href;
 
 	    if( hrefStr.indexOf('?') > (-1) ){
 		    var str = hrefStr.split('?')[1];
 		    if( str.indexOf('&') > (-1)  ){
-			    return str.split('&')[1].split('&')[1];
+			    return str.split('&')[0].split('=')[1];
 		    }else{
 			    return str.split('=')[1];
 		    }
 	    }else {
-		    aleret.log( 'URL参数错误' )
+		    alert( 'URL参数错误' )
 	    }
     }
+
 
     $.ajax({
         url:'/thorgeneweb/thorgeneweb_product/thorgeneweb_product!findById.action',
