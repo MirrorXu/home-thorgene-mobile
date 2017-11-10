@@ -20,9 +20,19 @@ var app = new Vue({
 });
 
 function getId () {
-    return window.location.href.split('?')[1].split('=')[1];
-}
+	var hrefStr = window.location.href;
 
+	if( hrefStr.indexOf('?') > (-1) ){
+		var str = hrefStr.split('?')[1];
+		if( str.indexOf('&') > (-1)  ){
+			return str.split('&')[1].split('&')[1];
+		}else{
+			return str.split('=')[1];
+		}
+	}else {
+		aleret.log( 'URL参数错误' )
+	}
+}
 
 $(function () {
    $.ajax({
