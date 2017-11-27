@@ -3,12 +3,12 @@
  */
 
 var proLists = {
-        checked: false,
-        children: '',
-        id: "pid_003",
-        product_isparent: "T",
-        product_pid: "-1",
-        text: "loading..."
+        // checked: false,
+        // children: '',
+        // id: "pid_003",
+        // product_isparent: "T",
+        // product_pid: "-1",
+        // text: "loading..."
     };
 
 var app = new Vue({

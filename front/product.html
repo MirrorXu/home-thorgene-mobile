@@ -37,6 +37,28 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			if(IsPC()){
+				var url=window.location.href;
+				url = url.replace("/front/", "/src/")
+				window.location.href = url
+			}else{
+			}
+		})
+		function IsPC(){
+			var userAgentInfo = navigator.userAgent;
+			var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+			var flag = true;
+			for (var v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+			}
+			return flag;
+		}
+    </script>
+
 </head>
 
 <body>
@@ -67,42 +89,49 @@
 </div>
 <!-- /Header -->
 
-<div id="app" v-if="proLists">
-    <!-- Page Header -->
-    <div class="page-header">
-        <div class="container">
-            <div class="row page-section">
-                <div class="col-md-8">
-                    <h1>{{ proLists.text }} </h1>
-                </div>
-                <div class="col-md-4">
-                    <!--<a href="javascript:void(0);" class="btn btn-linegreen pull-right mt20 mr0">&nbsp;&nbsp;&nbsp;&nbsp;</a>-->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Page Header -->
+<div id="app" >
 
-
-    <!--具体产品信息-->
-    <div class="container productsList" v-if="proLists.children">
-        <div class="panel-group mtb30" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default" v-for="v in proLists.children">
-                <div class="panel-heading" role="tab"   >
-                    <h4 class="panel-title Mcollapse" role="button" data-toggle="collapse" data-parent="#accordion" :data-target="'#'+v.id ">
-                        {{ v.text }}  <span class="pull-right"> <i class="fa fa-angle-right"></i></span>
-                    </h4>
-                </div>
-                <div class="panel-collapse collapse"  :id="v.id" >
-                    <div class="panel-body" >
-                        <ul class="" >
-                            <li  v-for="v in v.children"><a :href="bUrl + v.id" > {{ v.text }} </a></li>
-                        </ul>
+    <template v-if="proLists">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <div class="row page-section">
+                    <div class="col-md-8">
+                        <h1>{{ proLists.text }} </h1>
+                    </div>
+                    <div class="col-md-4">
+                        <!--<a href="javascript:void(0);" class="btn btn-linegreen pull-right mt20 mr0">&nbsp;&nbsp;&nbsp;&nbsp;</a>-->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- /Page Header -->
+
+
+        <!--具体产品信息-->
+        <div class="container productsList" v-if="proLists.children">
+            <div class="panel-group mtb30" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default" v-for="v in proLists.children">
+                    <div class="panel-heading" role="tab"   >
+                        <h4 class="panel-title Mcollapse" role="button" data-toggle="collapse" data-parent="#accordion" :data-target="'#'+v.id ">
+                            {{ v.text }}  <span class="pull-right"> <i class="fa fa-angle-right"></i></span>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse"  :id="v.id" >
+                        <div class="panel-body" >
+                            <ul class="" >
+                                <li  v-for="v in v.children"><a :href="bUrl + v.id" > {{ v.text }} </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </template>
+
+
     <div class="container" v-else>
          <span class='center-block' style='width: 100%;text-align: center;color: #006699;padding-top: 100px;padding-bottom: 100px'>
              <i class='fa fa-spinner fa-pulse' style='font-size: 100px'></i>
@@ -111,9 +140,6 @@
 
 
 </div>
-
-
-
 
 
 <!-- Footer-section -->
@@ -130,6 +156,13 @@
                 <li class="col-xs-6"><a href="product.html?id=pid_003"><i class="fa fa-angle-right"></i>  大众健康</a>
                 <li class="col-xs-6"><a href="news.html"><i class="fa fa-angle-right"></i>  新闻动态</a></li>
                 <li class="col-xs-6"><a href="about-us.html"><i class="fa fa-angle-right"></i>  关于索真</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section-item">
+            <h2>服务支持：</h2>
+            <ul class="row">
+                <li class="col-xs-6"><a href="./trainingCenter.html"><i class="fa fa-angle-right"></i> 培训讲堂</a>
             </ul>
         </div>
 
@@ -168,7 +201,6 @@
 
 
 <!-- jquery -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="lib/vue/dist/vue.js"></script>
 <script src="js/Mirror_proList.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

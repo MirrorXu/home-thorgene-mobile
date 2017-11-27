@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <!-- head -->
 <head>
-    <title>产品详情</title>
+    <title>培训讲堂</title>
     <meta charset="utf-8" />
     <meta name="keywords" content="索真, 索真医学, 索真官网,  基因检测">
     <meta name="description" content="索真医学是由数名美国海归教授、肿瘤基因检测专家、中国科学院计算技术研究所的大数据分析专家和互联网专家联合创建,拥有基因检测技术、大数据分析平台和移动互联网平台。" />
@@ -27,16 +27,12 @@
     <!-- Stucture CSS -->
     <link href="css/stucture.css" rel="stylesheet">
 
-    <!--定义产品详情页样式-->
-    <link rel="stylesheet" href="css/mirror/prodetails.css">
-
+    <link rel="stylesheet" href="css/mirror/trainingCenter.css">
     <!-- 兼容低版本浏览器 -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <link rel="stylesheet" href="css/mirror/UE_style.css">
 
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -60,11 +56,9 @@
 		}
     </script>
 
-
 </head>
 
 <body>
-
 <!-- Header -->
 <div class="header">
     <div class="container">
@@ -93,41 +87,58 @@
 <!-- /Header -->
 
 
-<div id="proDetails_app">
-    <!-- Page Header -->
-    <div class="page-header">
-        <div class="container">
-            <div class="row page-section">
-                <div class="col-md-8">
-                    <!--<h4>{{proDetails.parentName}}</h4>-->
-                    <h1>{{ proDetails.product_name }}</h1>
-                </div>
-                <div class="col-md-4">
-                    <!--<a href="javascript:void(0)" class="btn btn-linegreen pull-right mt20 mr0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>-->
-                </div>
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container">
+        <div class="row page-section">
+            <div class="col-md-8">
+                <!--<h4>索真医学，索微求真</h4>-->
+                <h1>培训讲堂</h1>
+            </div>
+            <div class="col-md-4">
+                <!--<a href="javascript:void(0)" class="btn btn-linegreen pull-right mt20 mr0">预留功能A</a>-->
             </div>
         </div>
     </div>
-    <!-- /Page Header -->
-
-    <!--product_content-->
-    <div class="product_content">
-
-        <div id="proDetails-render"  class="container UE_style-1" v-if="proDetails.product_content" v-html="proDetails.product_content">
-
-        </div>
-
-        <div class="container" v-else >
-            <span class='center-block' style='width: 100%;text-align: center;color: #006699;padding-top: 100px;padding-bottom: 100px'>
-                <i class='fa fa-spinner fa-pulse' style='font-size: 100px'></i>
-            </span>
-        </div>
-
-    </div>
-    <!--/product_content-->
-
 </div>
+<!-- /Page Header -->
 
+<div id="news-content">
+
+    <div class="container ">
+
+        <div class="training-content">
+            <div  v-if="videos.length > 0">
+                <div class="search-box clearfix">
+                    <span class="search-icon"   @click="filterVideo( key )"> <i class="fa fa-search"></i></span>
+                    <input class="search-input" type="text" v-model="key" >
+                </div>
+                <div class="video-box clearfix" v-if="show.length > 0">
+                    <div class="video-item" v-for="v in show" @click="playVideo( v.id )">
+                        <video controls v-if="v.play" autoplay>
+                            <source :src="v.pubPath">
+                            您的浏览器不支持视频H5视频播放！
+                        </video>
+                        <img v-else :src="v.videoImg" alt="点击播放">
+                        <h2 class="video-title multiLineText1" >{{ v.title }}</h2>
+                    </div>
+                </div>
+
+                <div class="no-video" v-else>
+                    非常抱歉，无法检索到相关内容...
+                    <span @click="filterVideo('all')">查看所有视频</span>
+                </div>
+
+            </div>
+
+            <div v-else>
+                <span class='center-block' style='width: 100%;text-align: center;color: #006699;padding-top: 100px;padding-bottom: 100px'>
+             <i class='fa fa-spinner fa-pulse' style='font-size: 100px'></i>
+         </span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Footer-section -->
@@ -188,104 +199,88 @@
 <!-- /Tiny Footer-section -->
 
 
+
 <!-- jquery -->
-<script src="lib/vue/dist/vue.js"></script>
-<script>
-    var proDetails = {
-                product_id: "pid_005",
-                product_name: "loading...",
-                product_isparent: "T",
-                product_pid: "pid_001",
-                product_isshow: "T",
-                product_status: null,
-                product_content:"",
-                product_createtime: null,
-                product_author: null,
-                product_information:"这是产品的相关介绍。",
-                product_image: null,
-                lists: null,
-                parentName: "临床 > 肿瘤基因检测产品 > 肿瘤用药指导基因检测 > "
-            }
-
-    var proDetails_app = new Vue({
-        el:'#proDetails_app',
-        data:{
-            proDetails:proDetails,
-        }
-    });
-
-
-    function getId () {
-	    var hrefStr = window.location.href;
-
-	    if( hrefStr.indexOf('?') > (-1) ){
-		    var str = hrefStr.split('?')[1];
-		    if( str.indexOf('&') > (-1)  ){
-			    return str.split('&')[0].split('=')[1];
-		    }else{
-			    return str.split('=')[1];
-		    }
-	    }else {
-		    alert( 'URL参数错误' )
-	    }
-    }
-
-
-    $.ajax({
-        url:'/thorgeneweb/thorgeneweb_product/thorgeneweb_product!findById.action',
-        data:{
-            product_id:getId()
-        },
-        async:false,
-        dataType:'json',
-        success:function (data) {
-            if(data){
-                proDetails_app.proDetails = data;
-                console.log( 'ajax成功' );
-            }else{
-                alert('服务器繁忙，请稍后再试！');
-            }
-        },
-        error:function (data) {
-            console.log('请求失败：',data );
-            proDetails_app.proDetails = {
-                product_id: "pid_005",
-                product_name: "数据获取失败,请稍后再试...",
-                product_isparent: "T",
-                product_pid: "pid_001",
-                product_isshow: "T",
-                product_status: null,
-                product_content:"非常抱歉，数据请求失败，请稍后再试",
-                product_createtime: null,
-                product_author: null,
-                product_information:"这是产品的相关介绍。",
-                product_image: null,
-                lists: null,
-                parentName: "临床 > 肿瘤基因检测产品 > 肿瘤用药指导基因检测 > "
-            }
-        }
-    });
-//    console.log('ajax 下');
-
-</script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/menumaker.js"></script>
+<script src="lib/vue/dist/vue.js"></script>
+<script src="http://www.thorgene.org/videos/videoData.js"></script>
+
 <script>
-    window.onload = function () {
-//        console.log('是不是最后执行的？？')
 
-        $('.UE_style-1').find('*').attr({
-            width:'',
-            valign:'',
-            class:'',
-            style:''
-        });
+	if(!viedosData){
+		var viedosData = [
 
-        $('.UE_style-1').find('table').addClass('table table-bordered table-responsive');
-
+		];
     }
+
+
+
+	var app = new Vue({
+		el:'.training-content',
+		data:{
+			show:[
+
+			],
+			videos:viedosData,
+			key:'',
+
+		},
+		methods:{
+			filterVideo:function ( v ) {
+				this.stopPlayVideo();
+				if( v ){
+
+
+					if(v ==='all'){
+						return this.show =  this.videos
+					}else{
+						var key = v;
+						this.show = this.videos.filter(function ( v , i ) {
+							return v.keywords && ( v.keywords.indexOf( key ) > -1 )
+						})
+					}
+
+				}else{
+					console.log('参数有误')
+				}
+			},
+			playVideo:function ( id ) {
+				if( id ){
+					this.show.forEach(function (v , i ) {
+//                    	console.log(v.id , v.play );
+						if( v.id === id ){
+							v.play = 1
+						}else {
+							v.play = 0
+						}
+					} )
+				}
+			},
+			stopPlayVideo:function () {
+				this.show.forEach(function (v , i ) {
+					v.play = 0 ;
+//					console.log( v.id , v.play)
+				})
+			}
+
+		},
+		beforeMount:function () {
+			this.show = this.videos;
+		},
+		mounted:function () {
+			console.log('mounted')
+
+//			console.log( this.show.length )
+		},
+		updated:function () {
+//			console.log( 'updated' , this.show.length )
+		}
+	})
+
+
+
 </script>
+<!-- end  jquery -->
 </body>
-
-
 </html>

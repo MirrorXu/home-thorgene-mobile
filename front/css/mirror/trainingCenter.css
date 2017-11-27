@@ -1,0 +1,100 @@
+/*------------start-------------网站基本色系--------------------------------*/
+/*------------end------网站基本色系--------------------------------*/
+.training-content {
+  margin-bottom: 80px;
+}
+.training-content .search-box {
+  overflow: hidden;
+  border-radius: 4px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 40px;
+  width: 100%;
+  position: relative;
+}
+.training-content .search-box .search-icon {
+  display: block;
+  width: 50px;
+  height: inherit;
+  background: #0085c7;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+.training-content .search-box .search-icon .fa {
+  font-size: 17px;
+  line-height: 40px;
+  height: inherit;
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  color: #fefefe;
+}
+.training-content .search-box .search-input {
+  display: block;
+  height: inherit;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 60px;
+  color: #888;
+  font-size: 16px;
+  background: #f0f0f0;
+  border: none;
+  outline: none;
+}
+.training-content .video-box .video-item {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #f0f0f0;
+  float: left;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.training-content .video-box .video-item video {
+  width: 100%;
+  height: auto;
+}
+.training-content .video-box .video-item img {
+  width: 100%;
+  height: auto;
+}
+.training-content .video-box .video-item .video-title {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  font-weight: bolder;
+  text-align: center;
+}
+.training-content .video-box .video-item .video-title:hover {
+  text-decoration: underline;
+}
+.training-content .no-video {
+  color: #cccccc;
+  min-height: 200px!important;
+  font-size: 16px;
+}
+.training-content .no-video span {
+  display: inline-block;
+  text-decoration: underline;
+  padding: 5px 20px;
+  font-size: 16px;
+  color: #006699;
+  cursor: pointer;
+}
+.training-content .video-tips {
+  margin-top: 50px;
+  font-size: 16px;
+}
+.training-content .video-tips span {
+  color: red;
+  font-weight: bolder;
+}
+.training-content .video-tips a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 0 10px;
+}

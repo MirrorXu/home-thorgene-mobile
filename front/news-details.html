@@ -36,6 +36,28 @@
 
     <link rel="stylesheet" href="css/mirror/UE_style.css">
 
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			if(IsPC()){
+				var url=window.location.href;
+				url = url.replace("/front/", "/src/")
+				window.location.href = url
+			}else{
+			}
+		})
+		function IsPC(){
+			var userAgentInfo = navigator.userAgent;
+			var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+			var flag = true;
+			for (var v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+			}
+			return flag;
+		}
+    </script>
+
 </head>
 
 <body>
@@ -104,9 +126,6 @@
 
 
 
-
-
-
 <!-- Footer-section -->
 <div class="footer-section">
     <div class="container">
@@ -121,6 +140,13 @@
                 <li class="col-xs-6"><a href="product.html?id=pid_003"><i class="fa fa-angle-right"></i>  大众健康</a>
                 <li class="col-xs-6"><a href="news.html"><i class="fa fa-angle-right"></i>  新闻动态</a></li>
                 <li class="col-xs-6"><a href="about-us.html"><i class="fa fa-angle-right"></i>  关于索真</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section-item">
+            <h2>服务支持：</h2>
+            <ul class="row">
+                <li class="col-xs-6"><a href="./trainingCenter.html"><i class="fa fa-angle-right"></i> 培训讲堂</a>
             </ul>
         </div>
 
@@ -146,7 +172,6 @@
     </div>
 </div>
 <!-- /Footer-section -->
-
 <!-- Tiny-footer Section -->
 <div class="tiny-footer-section">
     <div class="container">
@@ -160,7 +185,6 @@
 
 
 <!-- jquery -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/menumaker.js"></script>
 <script src="lib/vue/dist/vue.js"></script>
