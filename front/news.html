@@ -104,22 +104,27 @@
 <!-- /Page Header -->
 
 <div id="news-content">
-    <div class="container" v-if="newsList.length<=0">
+    <div class="container" v-if="newsData.length > 0">
+        <a  class="news-item row" v-for="v in show" :href="bUrl + v.id">
+            <div class="col-xs-4 news-img-box">
+                <img :src="v.titleImg" alt="v.titleImg" class="img-responsive">
+            </div>
+            <div class="col-xs-8 news-content-box">
+                <h2 class="news-title multiLineText2" >{{ v.title}}</h2>
+                <p class="news-time" > <i class="fa fa-clock-o"></i> {{ v.time || '--' }}</p>
+            </div>
+        </a>
+
+        <div class="MoreNewsBtn" @click="showMore">{{ btnMoreTxt }}</div>
+    </div>
+
+    <div class="container" v-else>
          <span class='center-block' style='width: 100%;text-align: center;color: #006699;padding-top: 100px;padding-bottom: 100px'>
              <i class='fa fa-spinner fa-pulse' style='font-size: 100px'></i>
          </span>
     </div>
-    <div class="container" v-else>
-        <a  class="news-item row" v-for="v in newsList" :href="bUrl + v.news_id">
-            <div class="col-xs-4 news-img-box">
-                <img :src="v.news_image" alt="v.news_title" class="img-responsive">
-            </div>
-            <div class="col-xs-8 news-content-box">
-                <h2 class="news-title multiLineText2" >{{ v.news_title}}</h2>
-                <p class="news-time" > <i class="fa fa-clock-o"></i> {{ v.news_time || '--' }}</p>
-            </div>
-        </a>
-    </div>
+
+
 </div>
 
 <!-- Footer-section -->

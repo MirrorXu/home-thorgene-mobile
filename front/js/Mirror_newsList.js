@@ -11,81 +11,74 @@
  * Created by MirrorXu on 2017/8/23.
  */
 
-var newList = [];
 
-var newsList_app = new Vue({
-    el:'#news-content',
-    data:{
-        newsList:newList,
-        bUrl:'news-details.html?id='
-    },
-});
+var newsData = [];
+var newsApp = new Vue({
+	el: '#news-content',
+	data: {
+		bUrl: './news-details.html?id=',
+		newsData: newsData,
+		totalNum: 0,
+		show: '',    // 将要展示的新闻列表
+		num: 10,      // 记录展示的新闻数量，并通过这个数量来改变当前展示的新闻数量
+		step: 6,  // 点击更多按钮时的增加的新闻数量
+		btnMoreTxt: '点击加载更多...',
+		showBtnMore: 0
+	},
+	created: function () {
+		var _this = this;
+		$.ajax({
+			url: 'http://www.vlifebank.com/vlifebank-api/news-list',
+			// async: false,
+			dataType: 'json',
+			success: function (data) {
+				if (data.retCode === 0) {
 
-//function getId () {
-//    return window.location.href.split('?')[1].split('=')[1];
-//}
+					_this.newsData = data.data;
+
+					_this.totalNum = _this.newsData.length;
+
+					_this.show = _this.newsData.filter(function (v, i) {
+						return i < _this.num;
+					})
+
+					console.log('ajax 数据是否改变了show：', _this.show.length)
+
+				} else {
+					console.log('天方创新新闻接口出现错误...请确认')
+				}
+
+			}
+		})
+
+	},
+	mounted: function () {
+		console.log('mounted:', this.show.length);
+		this.showBtnMore = 1
+	},
+	updated: function () {
+	},
+	methods: {
+		showMore: function () {
+
+			this.num += this.step;
+
+			if (this.num <= this.totalNum) {
+				var _this = this;
+				this.show = this.newsData.filter(function (v, i) {
+					return i < _this.num;
+				})
+			} else {
+				this.num = this.totalNum;
+
+				this.btnMoreTxt = '已经没有更多了...';
+
+				return false
+			}
 
 
-$(function () {
-    $.ajax({
-        url:'/thorgeneweb/web_news/thorgeneweb_news!findAllShow.action',
-        dataType:'json',
-        async:false,
-        success:function (data) {
-            if(data&&$.type(data)==='array'){
-            	newsList_app.newsList = data;
-            }else{
-                alert('服务器繁忙，请稍后再试！')
-            }
-        },
-        error:function (data) {
-            console.log('err：请求错误',data );
-            newsList_app.newsList = [
-                {
-                    news_id: "news_20170828145254",
-                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
-                    news_content: "<h2>新闻内容</h2>",
-                    news_time: "2017-08-28",
-                    news_editor: "Mirror",
-                    news_isshow: "",
-                    status: "",
-                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
-                    news_information:"新闻摘要"
-                },
-                {
-                    news_id: "news_20170828145254",
-                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
-                    news_content: "<h2>新闻内容</h2>",
-                    news_time: "2017-08-28",
-                    news_editor: "Mirror",
-                    news_isshow: "",
-                    status: "",
-                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
-                    news_information:"新闻摘要"
-                },
-                {
-                    news_id: "news_20170828145254",
-                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
-                    news_content: "<h2>新闻内容</h2>",
-                    news_time: "2017-08-28",
-                    news_editor: "Mirror",
-                    news_isshow: "",
-                    status: "",
-                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
-                    news_information:"新闻摘要"
-                },
-                {
-                    news_id: "news_20170828145254",
-                    news_title: "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题",
-                    news_content: "<h2>新闻内容</h2>",
-                    news_time: "2017-08-28",
-                    news_editor: "Mirror",
-                    news_isshow: "",
-                    status: "",
-                    news_image: "http://img3.qianzhan123.com/news/201701/12/20170112-3299cb46df3d25fd_600x5000.jpg",
-                    news_information:"新闻摘要"
-                }
-            ]
-        }
-    })
-});
+			console.log(this.num);
+
+		}
+	}
+})

@@ -106,22 +106,33 @@
 <!-- /Page Header -->
 
 <div id="news-content">
-    <div class="container" v-if="!newsDetails.news_title">
+
+    <div class="container UE_style-1" v-if="newsDetails.title">
+        <h3 class="news-details-title"> {{newsDetails.title}} </h3>
+        <div class="news-details-info">
+            <span class="news-details-info-time"><i class="fa fa-clock-o"></i> : {{newsDetails.time || '--'}}</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="news-details-info-editor"><i class="fa fa-user-o"></i> : {{newsDetails.author ||'索真医学'}}</span>
+        </div>
+        <hr class="mtb10">
+        <div class="UE-Box" v-if="newsDetails.content" >
+            <template v-for="(v , k ) in newsDetails.content">
+                <template v-for="( v , k  ) in v">
+                    <template v-if="k =='img'"><img :src="v" alt="v" title="v"></template>
+                    <template v-else-if="k =='p'"><p style="font-size: 16px !important; padding-bottom: 20px">{{ v }}</p></template>
+                    <template v-else><p style="font-size: 16px !important; padding-bottom: 20px">{{ v }}</p></template>
+                </template>
+            </template>
+
+        </div>
+    </div>
+
+    <div class="container" v-else >
          <span class='center-block' style='width: 100%;text-align: center;color: #006699;padding-top: 100px;padding-bottom: 100px'>
              <i class='fa fa-spinner fa-pulse' style='font-size: 100px'></i>
          </span>
     </div>
-    <div class="container UE_style-1" v-if="newsDetails.news_title">
-        <h3 class="news-details-title"> {{newsDetails.news_title}} </h3>
-        <div class="news-details-info">
-            <span class="news-details-info-time"><i class="fa fa-clock-o"></i> : {{newsDetails.news_time || '--'}}</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="news-details-info-editor"><i class="fa fa-user-o"></i> : {{newsDetails.news_editor ||'--'}}</span>
-        </div>
-        <hr class="mtb10">
-        <div class="UE-Box" v-if="newsDetails.news_content" v-html=" newsDetails.news_content">
-        </div>
-    </div>
+
 </div>
 
 

@@ -2,18 +2,40 @@
 var newsDetails_app = new Vue({
     el:'#news-content',
     data:{
-        newsDetails: {
-                news_id: "news_20170828145254",
-                news_title: "新闻标题",
-                news_content: "<p>新闻内容</p>",
-                news_time: "2017-08-28",
-                news_editor: "Mirror",
-                news_isshow: "",
-                status: "",
-                news_image: "",
-                news_information: null
-            }
+        newsDetails: '' ,
+        newsId :getId()
     },
+    created:function () {
+
+        var _this = this ;
+
+	    $.ajax({
+		    url:'http://www.vlifebank.com/vlifebank-api/news-list',
+		    data:{
+			    id:_this.newsId
+		    },
+		    dataType:'json',
+		    success:function (data) {
+			    if(data){
+                     var news = data.data.filter(function (  v  ) {
+                        return v.id == _this.newsId
+                    })[0]
+
+                    if( typeof news.content =='string' ){
+                         news.content = JSON.parse(news.content)
+                    }
+
+				    _this.newsDetails = news;
+
+			    }else{
+				    console.log( '服务器响应成功，但并未返回数据')
+			    }
+		    },
+		    error:function (data) {
+			    console.log('天方创新数据接口错误' );
+		    }
+	    })
+    }
 });
 
 function getId () {
@@ -31,23 +53,3 @@ function getId () {
     }
 }
 
-
-$(function () {
-    $.ajax({
-        url:'/thorgeneweb/web_news/thorgeneweb_news!findById.action',
-        data:{
-            id:getId()
-        },
-        dataType:'json',
-        success:function (data) {
-            if(data){
-                newsDetails_app.newsDetails = data;
-            }else{
-                alert('')
-            }
-        },
-        error:function (data) {
-            console.log('无法请求到数据' );
-        }
-    })
-});
