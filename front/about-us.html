@@ -152,44 +152,44 @@
         </div>
     </div>
 
-    <div class="team-sec section">
-        <div class="container">
-            <h3 class="section-title">专家团队</h3>
-            <hr>
-            <div class="team-box container">
-                <div class="row">
-                    <div class="col-xs-6" v-for="v in team">
-                        <div class="team-box-item" @click="showModel( v.name )" data-toggle="modal" data-target="#DrModal">
-                            <img :src="v.img" class="img-responsive" />
-                            <h4 >{{ v.name }}</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="DrModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content modal-sm" style="top: 150px;">
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="color: #006699;font-weight: bold;text-align: center">{{ currentDr.name }}
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </h4>
+    <!--<div class="team-sec section">-->
+        <!--<div class="container">-->
+            <!--<h3 class="section-title">专家团队</h3>-->
+            <!--<hr>-->
+            <!--<div class="team-box container">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-6" v-for="v in team">-->
+                        <!--<div class="team-box-item" @click="showModel( v.name )" data-toggle="modal" data-target="#DrModal">-->
+                            <!--<img :src="v.img" class="img-responsive" />-->
+                            <!--<h4 >{{ v.name }}</h4>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div id="DrModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">-->
+            <!--<div class="modal-dialog" role="document">-->
+                <!--<div class="modal-content modal-sm" style="top: 150px;">-->
+                    <!--<div class="modal-header">-->
+                        <!--<h4 class="modal-title" style="color: #006699;font-weight: bold;text-align: center">{{ currentDr.name }}-->
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                        <!--</h4>-->
 
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img :src="currentDr.img" :alt="currentDr.name" class="img-circle img-responsive">
-                            </div>
-                            <div class="col-xs-9">
-                                <p style="font-size: 13px"> {{ currentDr.text }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <!--</div>-->
+                    <!--<div class="modal-body">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-3">-->
+                                <!--<img :src="currentDr.img" :alt="currentDr.name" class="img-circle img-responsive">-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-9">-->
+                                <!--<p style="font-size: 13px"> {{ currentDr.text }}</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
 
 

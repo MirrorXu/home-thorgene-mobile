@@ -28,7 +28,7 @@ var newsApp = new Vue({
 	created: function () {
 		var _this = this;
 		$.ajax({
-			url: 'http://www.vlifebank.com/vlifebank-api/news-list',
+			url: 'http://api.vlifebank.com/vlifebank-api/news-list',
 			// async: false,
 			dataType: 'json',
 			success: function (data) {

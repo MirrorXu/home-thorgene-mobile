@@ -10,7 +10,7 @@ var newsDetails_app = new Vue({
         var _this = this ;
 
 	    $.ajax({
-		    url:'http://www.vlifebank.com/vlifebank-api/news-list',
+		    url:'http://api.vlifebank.com/vlifebank-api/news-list',
 		    data:{
 			    id:_this.newsId
 		    },
