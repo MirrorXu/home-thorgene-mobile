@@ -3,11 +3,13 @@
 <!-- head -->
 <head>
     <title>关于我们</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="keywords" content="索真, 索真医学, 索真官网,  基因检测">
-    <meta name="description" content="索真医学是由数名美国海归教授、肿瘤基因检测专家、中国科学院计算技术研究所的大数据分析专家和互联网专家联合创建,拥有基因检测技术、大数据分析平台和移动互联网平台。" />
-    <meta name="author" content="MirrorXu" />
-    <meta  name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="description"
+          content="索真医学是由数名美国海归教授、肿瘤基因检测专家、中国科学院计算技术研究所的大数据分析专家和互联网专家联合创建,拥有基因检测技术、大数据分析平台和移动互联网平台。"/>
+    <meta name="author" content="MirrorXu"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <!--<meta name="MobileOptimized" content="320" />-->
 
     <!-- favicon-icon -->
@@ -36,20 +38,24 @@
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript">
-		$(function(){
-			if(IsPC()){
-				var url=window.location.href;
+		$(function () {
+			if (IsPC()) {
+				var url = window.location.href;
 				url = url.replace("/front/", "/src/")
 				window.location.href = url
-			}else{
+			} else {
 			}
 		})
-		function IsPC(){
+
+		function IsPC() {
 			var userAgentInfo = navigator.userAgent;
 			var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
 			var flag = true;
 			for (var v = 0; v < Agents.length; v++) {
-				if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+					flag = false;
+					break;
+				}
 			}
 			return flag;
 		}
@@ -63,7 +69,8 @@
 <div class="header">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 hidden-xs hidden-sm"><a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-responsive" alt="Logo"></a> </div>
+            <div class="col-md-3 hidden-xs hidden-sm"><a class="navbar-brand" href="index.html"><img
+                    src="images/logo.png" class="img-responsive" alt="Logo"></a></div>
             <div class="col-md-9">
                 <div class="menu-box">
                     <div id="navmenu">
@@ -94,7 +101,7 @@
                 <h1>关于索真</h1>
             </div>
             <div class="col-md-4">
-            <!--<a href="javascript:void(0);" class="btn btn-linegreen pull-right mt20 mr0">预留功能A</a>-->
+                <!--<a href="javascript:void(0);" class="btn btn-linegreen pull-right mt20 mr0">预留功能A</a>-->
             </div>
         </div>
     </div>
@@ -108,13 +115,16 @@
             <h3 class="section-title">公司简介</h3>
             <hr>
             <div class="text-box">
-            <p>索真医学是由数名美国海归教授、肿瘤基因检测专家、中国科学院计算技术研究所的大数据分析专家和互联网专家联合创建，下设有经北京市卫计委审批的专业从事细胞分子遗传学专业检测的北京索真医学检验所。索真医学拥有基因检测技术、大数据分析平台和移动互联网平台，致力于打造具有国际前沿水平的、基于大数据和互联网平台的基因检测实验室，重点开展肿瘤用药指导基因检测、遗传病基因诊断和精准健康基因检测，为个体化精准医疗提供准确的检测数据。
-            </p>
-                <p id="hidden-text" class="hidden">在医学健康领域，索真医学立足于核心海内外人才团队，汇集了海内外优秀的基因组学及医学专家，有多学科人才组成的合理技术梯队，并已在肿瘤个体化诊疗、疾病病基因检测和大众健康等方向形成了优秀的产品体系，推出了包括无创肿瘤基因检测、肿瘤安全用药基因检测、遗传病基因检测在内的一系列基因检测临床应用项目，在精准医学领域赢得了广大合作伙伴的高度认可。<br>&nbsp;&nbsp;&nbsp;&nbsp;在医学科研服务领域，索真医学在基因组学、转录组学和表观遗传学等多组学水平与国内外高校院所和研发机构广泛开展科研合作，为人类重大疾病基础研究提供优秀的技术解决方案。
-            </p>
+                <p>
+                    索真医学致力于融合大数据分析、液体活检、肿瘤免疫治疗等前沿新兴科技，提供科学专业的分子诊疗及科学研究服务方案。公司聚焦于肿瘤精准医疗，并提供覆盖全生命周期的健康服务，包括疾病风险评估、安全用药、治疗方案和健康指导等方方面面。
+                </p>
+                <p id="hidden-text" class="hidden">索真医学拥有业界顶尖、多学科交叉的专家团队，已完成北京亦庄研发总部、临床医学检验所、南京大数据分析中心、苏州设备研发基地的多中心建设，深入进行产业链上下游完整布局。目前，公司的健康人群全基因检测与肿瘤基因数据分析量位居全国前列，业务覆盖全国各省市及以协和医院为首的数十家顶级三甲医院。
+                </p>
 
-        </div>
-            <div class="text-more" style="text-align: center"> <span id="glyphicon" class="fa fa-angle-double-down"></span> <span  class="fa fa-angle-double-up hidden"></span> </div>
+            </div>
+            <div class="text-more" style="text-align: center"><span id="glyphicon"
+                                                                    class="fa fa-angle-double-down"></span> <span
+                    class="fa fa-angle-double-up hidden"></span></div>
         </div>
     </div>
 
@@ -125,7 +135,7 @@
             <div class="row advan-box">
                 <div class="col-xs-12 col-md-4">
                     <div class="advan-box-item">
-                        <img src="images/advantage/1.png" class="img-responsive " />
+                        <img src="images/advantage/1.png" class="img-responsive "/>
                         <h4>全液体肿瘤活检技术</h4>
                         <p>作为超高灵敏度的全液体肿瘤活检（血液，尿液，胸腹水，脑脊液等）技术服务商， 循环肿瘤DNA检测灵敏度远高于业界灵敏度水平。
                         </p>
@@ -134,7 +144,7 @@
                 <div class="col-xs-12 col-md-4">
 
                     <div class=" advan-box-item">
-                        <img src="images/advantage/2.png" class="img-responsive " />
+                        <img src="images/advantage/2.png" class="img-responsive "/>
                         <h4>国际标准的临床检验实验室</h4>
                         <p>索真医学检验所是第一家按照最新标准通过卫计委审批并获得医疗机构执业许可证的医学检验所。
                         </p>
@@ -142,7 +152,7 @@
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <div class="advan-box-item">
-                        <img src="images/advantage/3.png" class="img-responsive " />
+                        <img src="images/advantage/3.png" class="img-responsive "/>
                         <h4>智能化精准数据分析平台</h4>
                         <p>国内首家专注于发掘生命数据价值，结合生物检测，临 床医学与大数据分析技术构建的个人多维数据健康管理 系统平台，拥有多项国际领先的专利技术。
                         </p>
@@ -153,42 +163,42 @@
     </div>
 
     <!--<div class="team-sec section">-->
-        <!--<div class="container">-->
-            <!--<h3 class="section-title">专家团队</h3>-->
-            <!--<hr>-->
-            <!--<div class="team-box container">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-xs-6" v-for="v in team">-->
-                        <!--<div class="team-box-item" @click="showModel( v.name )" data-toggle="modal" data-target="#DrModal">-->
-                            <!--<img :src="v.img" class="img-responsive" />-->
-                            <!--<h4 >{{ v.name }}</h4>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div id="DrModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">-->
-            <!--<div class="modal-dialog" role="document">-->
-                <!--<div class="modal-content modal-sm" style="top: 150px;">-->
-                    <!--<div class="modal-header">-->
-                        <!--<h4 class="modal-title" style="color: #006699;font-weight: bold;text-align: center">{{ currentDr.name }}-->
-                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                        <!--</h4>-->
+    <!--<div class="container">-->
+    <!--<h3 class="section-title">专家团队</h3>-->
+    <!--<hr>-->
+    <!--<div class="team-box container">-->
+    <!--<div class="row">-->
+    <!--<div class="col-xs-6" v-for="v in team">-->
+    <!--<div class="team-box-item" @click="showModel( v.name )" data-toggle="modal" data-target="#DrModal">-->
+    <!--<img :src="v.img" class="img-responsive" />-->
+    <!--<h4 >{{ v.name }}</h4>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div id="DrModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">-->
+    <!--<div class="modal-dialog" role="document">-->
+    <!--<div class="modal-content modal-sm" style="top: 150px;">-->
+    <!--<div class="modal-header">-->
+    <!--<h4 class="modal-title" style="color: #006699;font-weight: bold;text-align: center">{{ currentDr.name }}-->
+    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+    <!--</h4>-->
 
-                    <!--</div>-->
-                    <!--<div class="modal-body">-->
-                        <!--<div class="row">-->
-                            <!--<div class="col-xs-3">-->
-                                <!--<img :src="currentDr.img" :alt="currentDr.name" class="img-circle img-responsive">-->
-                            <!--</div>-->
-                            <!--<div class="col-xs-9">-->
-                                <!--<p style="font-size: 13px"> {{ currentDr.text }}</p>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="modal-body">-->
+    <!--<div class="row">-->
+    <!--<div class="col-xs-3">-->
+    <!--<img :src="currentDr.img" :alt="currentDr.name" class="img-circle img-responsive">-->
+    <!--</div>-->
+    <!--<div class="col-xs-9">-->
+    <!--<p style="font-size: 13px"> {{ currentDr.text }}</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!--</div>-->
 </div>
 
@@ -199,14 +209,16 @@
         <div class="footer-section-item">
             <h2>快速导航：</h2>
             <ul class="row">
-                <li class="col-xs-6"><a href="index.html"><i class="fa fa-angle-right"></i>  首页</a>
-                <li class="col-xs-6"><a href="product.html?id=pid_004"><i class="fa fa-angle-right"></i>  肿瘤基因检测</a></li>
-                <li class="col-xs-6"><a href="product.html?id=pid_005"><i class="fa fa-angle-right"></i>  遗传病基因检测</a></li>
-                <li class="col-xs-6"><a href="product.html?id=pid_006"><i class="fa fa-angle-right"></i>  药物代谢基因检测</a></li>
-                <li class="col-xs-6"><a href="product.html?id=pid_002"><i class="fa fa-angle-right"></i>  科研服务</a></li>
-                <li class="col-xs-6"><a href="product.html?id=pid_003"><i class="fa fa-angle-right"></i>  大众健康</a>
-                <li class="col-xs-6"><a href="news.html"><i class="fa fa-angle-right"></i>  新闻动态</a></li>
-                <li class="col-xs-6"><a href="about-us.html"><i class="fa fa-angle-right"></i>  关于索真</a></li>
+                <li class="col-xs-6"><a href="index.html"><i class="fa fa-angle-right"></i> 首页</a>
+                <li class="col-xs-6"><a href="product.html?id=pid_004"><i class="fa fa-angle-right"></i> 肿瘤基因检测</a></li>
+                <li class="col-xs-6"><a href="product.html?id=pid_005"><i class="fa fa-angle-right"></i> 遗传病基因检测</a>
+                </li>
+                <li class="col-xs-6"><a href="product.html?id=pid_006"><i class="fa fa-angle-right"></i> 药物代谢基因检测</a>
+                </li>
+                <li class="col-xs-6"><a href="product.html?id=pid_002"><i class="fa fa-angle-right"></i> 科研服务</a></li>
+                <li class="col-xs-6"><a href="product.html?id=pid_003"><i class="fa fa-angle-right"></i> 大众健康</a>
+                <li class="col-xs-6"><a href="news.html"><i class="fa fa-angle-right"></i> 新闻动态</a></li>
+                <li class="col-xs-6"><a href="about-us.html"><i class="fa fa-angle-right"></i> 关于索真</a></li>
             </ul>
         </div>
 
@@ -229,7 +241,7 @@
 
         <div class="footer-section-item links">
             <h2>友情链接:</h2>
-            <ul class="row" >
+            <ul class="row">
                 <li class="col-xs-12">南京索真信息技术有限公司</li>
                 <li class="col-xs-12">苏州索真医学科技有限公司</li>
                 <li class="col-xs-12"><a href="./index.html">北京索真医学检验实验室有限公司</a></li>
@@ -244,7 +256,7 @@
 <div class="tiny-footer-section">
     <div class="container">
         <div class="row">
-            <p class="tiny-footer-section-text">&copy; 2017 &nbsp;京ICP备17038502号 &nbsp;  索真（北京）医学科技有限公司</p>
+            <p class="tiny-footer-section-text">&copy; 2017 &nbsp;京ICP备17038502号 &nbsp; 索真（北京）医学科技有限公司</p>
         </div>
     </div>
 </div>
@@ -254,57 +266,56 @@
 <script type="text/javascript" src="js/menumaker.js"></script>
 <script src="lib/vue/dist/vue.js"></script>
 <script>
-    $(function () {
-        $('.text-more').on('click' , function () {
-            $(this).children('.fa-angle-double-up').toggleClass('hidden');
-            $(this).children('.fa-angle-double-down').toggleClass('hidden');
-            $('#hidden-text').toggleClass('hidden');
-        });
+	$(function () {
+		$('.text-more').on('click', function () {
+			$(this).children('.fa-angle-double-up').toggleClass('hidden');
+			$(this).children('.fa-angle-double-down').toggleClass('hidden');
+			$('#hidden-text').toggleClass('hidden');
+		});
 
-        var vm = new Vue({
-            el:'.team-sec',
-            data:{
-                team:[
-                    {
-                        name:'潘多佳',
-                        text:'美国加州大学（UCLA）博士，美国加州大学（UC Berkeley）大学博士后。现为美国UT Southwest 医学中心生理系教授，系主任。美国霍华德休斯医学研究所研究员。国际肿瘤研究领域权威，开创了HIPPO 基因通路在肿瘤中的功能研究。',
-                        img:'images/teams/panduojia-b.png'
-                    },
-                    {
-                        name:'张建民',
-                        text:'中国医学科学院基础医学研究所/北京协和医学院基础学院免疫学系教授,“协和学者”特聘教授、博士生导师。',
-                        img:'images/teams/zhangjianmin-b.png'
-                    },
-                    {
-                        name:'陈谦',
-                        text:'美国印第安纳大学医学院医学与分子遗传学系博士，美国约翰霍普金斯大学分子生物学和遗传学博士后。为中美两国基因检测的科研和临床应用做出了杰出的贡献。',
-                        img:'images/teams/chenqian-b.png'
-                    },
-                    {
-                        name:'刘泓',
-                        text:'中科院计算所博士。创立天方创新之前就职于中国科学院计算技术研究所，专注于大数据、云计算与生物信息领域，其研究成果已经应用在Facebook、阿里集团等知名企业。',
-                        img:'images/teams/liuhong-b.png'
-                    }
-                ],
-                currentDr:{
-                        name:'潘多佳',
-                        text:'美国加州大学（UCLA）博士，美国加州大学（UC Berkeley）大学博士后。现为美国UT Southwest 医学中心生理系教授，系主任。美国霍华德休斯医学研究所研究员。国际肿瘤研究领域权威，开创了HIPPO 基因通路在肿瘤中的功能研究。',
-                        img:'images/teams/panduojia-b.png'
-                    }
-            },
-            methods:{
-                showModel:function ( e ) {
-                     tempArr = this.team.filter(function (v) {
-                        return v.name === e
-                    });
-                    this.currentDr = tempArr[0]
-                }
-            }
-        })
+		var vm = new Vue({
+			el: '.team-sec',
+			data: {
+				team: [
+					{
+						name: '潘多佳',
+						text: '美国加州大学（UCLA）博士，美国加州大学（UC Berkeley）大学博士后。现为美国UT Southwest 医学中心生理系教授，系主任。美国霍华德休斯医学研究所研究员。国际肿瘤研究领域权威，开创了HIPPO 基因通路在肿瘤中的功能研究。',
+						img: 'images/teams/panduojia-b.png'
+					},
+					{
+						name: '张建民',
+						text: '中国医学科学院基础医学研究所/北京协和医学院基础学院免疫学系教授,“协和学者”特聘教授、博士生导师。',
+						img: 'images/teams/zhangjianmin-b.png'
+					},
+					{
+						name: '陈谦',
+						text: '美国印第安纳大学医学院医学与分子遗传学系博士，美国约翰霍普金斯大学分子生物学和遗传学博士后。为中美两国基因检测的科研和临床应用做出了杰出的贡献。',
+						img: 'images/teams/chenqian-b.png'
+					},
+					{
+						name: '刘泓',
+						text: '中科院计算所博士。创立天方创新之前就职于中国科学院计算技术研究所，专注于大数据、云计算与生物信息领域，其研究成果已经应用在Facebook、阿里集团等知名企业。',
+						img: 'images/teams/liuhong-b.png'
+					}
+				],
+				currentDr: {
+					name: '潘多佳',
+					text: '美国加州大学（UCLA）博士，美国加州大学（UC Berkeley）大学博士后。现为美国UT Southwest 医学中心生理系教授，系主任。美国霍华德休斯医学研究所研究员。国际肿瘤研究领域权威，开创了HIPPO 基因通路在肿瘤中的功能研究。',
+					img: 'images/teams/panduojia-b.png'
+				}
+			},
+			methods: {
+				showModel: function (e) {
+					tempArr = this.team.filter(function (v) {
+						return v.name === e
+					});
+					this.currentDr = tempArr[0]
+				}
+			}
+		})
 
 
-
-    });
+	});
 </script>
 </body>
 </html>
